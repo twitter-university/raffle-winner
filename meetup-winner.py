@@ -33,8 +33,8 @@ data = json.load(urllib2.urlopen(url))
 rsvps = data['results']
 
 if len(rsvps) > 0:
-	for x in range (1, min(winners + 1, len(rsvps))):
+	for winner in range (1, min(winners + 1, len(rsvps))):
 		rsvp = rsvps.pop(random.randint(0, len(rsvps) - 1))
-		print "%2d: %s" % (x, rsvp['member']['name'])
+		print "%2d: %s" % (winner, rsvp['member']['name'])
 else:
 	print 'No winners'
